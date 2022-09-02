@@ -43,11 +43,6 @@ const DataBase = {
 		case "zh-CN":
 			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🏴‍☠️${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🏴‍☠️\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
 			break;
-		case "cn":
-		case "cn-HK":
-		default:
-			content = `Public IPv4: ${Trace4?.ip}\nPublic IPv6: ${Trace6?.ip}\nColocation Center: ${Trace4?.loc ?? Trace6?.loc} | ${Trace4?.colo ?? Trace6?.colo}\nWARP Level: ${Trace4?.warp ?? Trace6?.warp}\nAccount Type: ${Account?.data?.type ?? "Failed to get"}\nData Information: ${Account?.data?.text ?? "Failed to get"}`
-			break;
 	};
 	const Panel = {
 		"title": "☁ 𝕎𝔸ℝℙ ᴾˡᵘˢ ☁",
