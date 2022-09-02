@@ -41,12 +41,12 @@ const DataBase = {
 	switch ($environment.language) {
 		case "zh-Hans":
 		case "zh-Hant":
-			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🏴‍☠️${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🏴‍☠️\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
+			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🏴‍☠️${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🏴‍☠️\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
 			break;
 		case "cn":
 		case "cn-HK":
 		default:
-			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🏴‍☠️${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🏴‍☠️\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}🌩\n账号类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
+			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🏴‍☠️${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🏴‍☠️\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}\n账号类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
 			break;
 	};
 	const Panel = {
