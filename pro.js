@@ -109,18 +109,18 @@ async function setENV(name, platform, database) {
 function formatTrace(trace) {
 	switch (trace?.warp) {
 		case "off":
-			trace.warp += " | 没有保护";
+			trace.warp += " ➠没有保护";
 			break;
 		case "on":
-			trace.warp += " | 部分保护";
+			trace.warp += " ➠部分保护";
 			break;
 		case "plus":
-			trace.warp += " | 完整保护";
+			trace.warp += " ➠完整保护";
 			break;
 		case undefined:
 			break;
 		default:
-			trace.warp += " | 未知类型";
+			trace.warp += " ➠未知类型";
 			break;
 	};
 	return trace;
@@ -130,13 +130,13 @@ function formatAccount(account) {
 	switch (account.account_type) {
 		case "unlimited":
 			account.data = {
-				"type": "无限版 | unlimited",
+				"type": "无限版➠unlimited",
 				"limited": false,
 			}
 			break;
 		case "limited":
 			account.data = {
-				"type": "有限版 | limited",
+				"type": "有限版➠limited",
 				"limited": true,
 				"used": parseInt(account.premium_data - account.quota) / 1024 / 1024 / 1024,
 				"flow": parseInt(account.quota) / 1024 / 1024 / 1024,
@@ -145,19 +145,19 @@ function formatAccount(account) {
 			break;
 		case "team":
 			account.data = {
-				"type": "团队版 | team",
+				"type": "团队版➠team",
 				"limited": false,
 			}
 			break;
 		case "plus":
 			account.data = {
-				"type": "WARP+ | plus",
+				"type": "WARP+➠plus",
 				"limited": false,
 			}
 			break;
 		case "free":
 			account.data = {
-				"type": "免费版 | free",
+				"type": "免费版➠free",
 				"limited": true,
 				"used": parseInt(account.premium_data - account.quota) / 1024 / 1024 / 1024,
 				"flow": parseInt(account.quota) / 1024 / 1024 / 1024,
@@ -186,10 +186,10 @@ function formatAccount(account) {
 			};
 			break;
 		case false:
-			account.data.text = "无限制 | unlimited"
+			account.data.text = "无限制➠unlimited"
 			break;
 		default:
-			account.data.text = "未知 | unknown"
+			account.data.text = "未知➠unknown"
 			break;
 	}
 	return account;
