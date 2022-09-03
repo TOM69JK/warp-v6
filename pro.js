@@ -173,11 +173,6 @@ function formatAccount(account) {
 				case "zh-Hant":
 					account.data.text = `\n已用流量: ${account.data.used.toFixed(2)}GB\n剩余流量: ${account.data.flow.toFixed(2)}GB\n总计流量: ${account.data.total.toFixed(2)}GB`
 					break;
-				case "en":
-				case "en-US":
-				default:
-					account.data.text = `\nUsed: ${account.data.used.toFixed(2)}GB\nResidual: ${account.data.flow.toFixed(2)}GB\nTotal: ${account.data.total.toFixed(2)}GB`
-					break;
 			};
 			break;
 		case false:
