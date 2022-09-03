@@ -121,7 +121,7 @@ function formatTrace(trace) {
 		case undefined:
 			break;
 		default:
-			trace.warp += "🌩➠完整保护🌩";
+			trace.warp += "🌩完整保护➠PLUS🌩";
 			break;
 		case undefined:
 			break;
