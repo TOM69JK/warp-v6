@@ -43,8 +43,8 @@ const DataBase = {
 		case "zh-Hant":
 			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip🩸}\n主机托管中心: 🌍${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🌍\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
 			break;
-		case "zh":
-		case "zh-CN":
+		case "zh-Hans":
+		case "zh-Hant":
 		default:
 			content = `IPv4: 💧${Trace4?.ip}💧\nIPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🌍${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🌍\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
 			break;
@@ -184,8 +184,8 @@ function formatAccount(account) {
 				case "zh-Hant":
 					account.data.text = `\n已用流量: ${account.data.used.toFixed(2)}GB\n剩余流量: ${account.data.flow.toFixed(2)}GB\n总计流量: ${account.data.total.toFixed(2)}GB`
 					break;
-				case "zh":
-				case "zh-CN":
+				case "zh-Hans":
+				case "zh-Hant":
 				default:
 					account.data.text = `\nUsed: ${account.data.used.toFixed(2)}GB\nResidual: ${account.data.flow.toFixed(2)}GB\nTotal: ${account.data.total.toFixed(2)}GB`
 					break;
