@@ -181,7 +181,7 @@ function formatAccount(account) {
 				case "zh-Hans":
 				case "zh-Hant":
 				default:
-					account.data.text = `\n已用流量: ${account.data.used.toFixed(2)}GB\n剩余流量: ${account.data.flow.toFixed(2)}GB\n总计流量: ${account.data.total.toFixed(2)}GB`
+					account.data.text = `\nUsed: ${account.data.used.toFixed(2)}GB\nResidual: ${account.data.flow.toFixed(2)}GB\nTotal: ${account.data.total.toFixed(2)}GB`
 					break;
 			};
 			break;
