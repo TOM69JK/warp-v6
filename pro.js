@@ -41,12 +41,7 @@ const DataBase = {
 	switch ($environment.language) {
 		case "zh-Hans":
 		case "zh-Hant":
-			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip🩸}\n主机托管中心: 🌍${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🌍\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
-			break;
-		case "zh-Hans":
-		case "zh-Hant":
-		default:
-			content = `IPv4: 💧${Trace4?.ip}💧\nIPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🌍${Trace4?.loc ?? Trace6?.loc}➠${Trace4?.colo ?? Trace6?.colo}🌍\nWARP隐私: ${Trace4?.warp ?? Trace6?.warp}\n账户类型: ${Account?.data?.type ?? "获取失败"}\n流量信息: ${Account?.data?.text ?? "获取失败"}`
+			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\n主机托管中心: 🌍${Trace4?.loc ?? Trace6?.loc} | ${Trace4?.colo ?? Trace6?.colo}🌏\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ⛈${Account?.data?.type ?? "获取失败"}⛈\n流量信息:🌧 ${Account?.data?.text ?? "获取失败"}🌧`
 			break;
 	};
 	const Panel = {
@@ -108,25 +103,19 @@ async function setENV(name, platform, database) {
 
 function formatTrace(trace) {
 	switch (trace?.warp) {
-		case undefined:
+		case "off":
+			trace.warp += " | 没有保护";
 			break;
-		default:
-			trace.warp += "🈚️没有保护➠OFF🈚️";
+		case "on":
+			trace.warp += " | 部分保护";
 			break;
-		case undefined:
-			break;
-		default:
-			trace.warp += "🈶部分保护➠ON🈶";
-			break;
-		case undefined:
-			break;
-		default:
-			trace.warp += "🌩完整保护➠PLUS🌩";
+		case "plus":
+			trace.warp += " | 完整保护";
 			break;
 		case undefined:
 			break;
 		default:
-			trace.warp += "🤔未知类型➠UNKNOWN🤔";
+			trace.warp += " | 未知类型";
 			break;
 	};
 	return trace;
@@ -136,13 +125,13 @@ function formatAccount(account) {
 	switch (account.account_type) {
 		case "unlimited":
 			account.data = {
-				"type": "🌨无限版➠UNLIMITED🌨",
+				"type": "无限版 | unlimited",
 				"limited": false,
 			}
 			break;
 		case "limited":
 			account.data = {
-				"type": "🌥有限版➠LIMITED🌥",
+				"type": "有限版 | limited",
 				"limited": true,
 				"used": parseInt(account.premium_data - account.quota) / 1024 / 1024 / 1024,
 				"flow": parseInt(account.quota) / 1024 / 1024 / 1024,
@@ -151,19 +140,19 @@ function formatAccount(account) {
 			break;
 		case "team":
 			account.data = {
-				"type": "⛈团队版➠TEAM⛈",
+				"type": "团队版 | team",
 				"limited": false,
 			}
 			break;
 		case "plus":
 			account.data = {
-				"type": "🔥WARP+➠plus🔥",
+				"type": "WARP+ | plus",
 				"limited": false,
 			}
 			break;
 		case "free":
 			account.data = {
-				"type": "🌧免费版➠FREE🌧",
+				"type": "免费版 | free",
 				"limited": true,
 				"used": parseInt(account.premium_data - account.quota) / 1024 / 1024 / 1024,
 				"flow": parseInt(account.quota) / 1024 / 1024 / 1024,
@@ -184,18 +173,18 @@ function formatAccount(account) {
 				case "zh-Hant":
 					account.data.text = `\n已用流量: ${account.data.used.toFixed(2)}GB\n剩余流量: ${account.data.flow.toFixed(2)}GB\n总计流量: ${account.data.total.toFixed(2)}GB`
 					break;
-				case "zh-Hans":
-				case "zh-Hant":
+				case "en":
+				case "en-US":
 				default:
 					account.data.text = `\nUsed: ${account.data.used.toFixed(2)}GB\nResidual: ${account.data.flow.toFixed(2)}GB\nTotal: ${account.data.total.toFixed(2)}GB`
 					break;
 			};
 			break;
 		case false:
-			account.data.text = "🌨无限制➠UNLIMITED🌨"
+			account.data.text = "无限制 | unlimited"
 			break;
 		default:
-			account.data.text = "🤔未知➠UNKNOWN🤔"
+			account.data.text = "未知 | unknown"
 			break;
 	}
 	return account;
