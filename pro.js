@@ -41,12 +41,12 @@ const DataBase = {
 	switch ($environment.language) {
 		case "zh-Hans":
 		case "zh-Hant":
-			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: 🌨${Account?.data?.type ?? "获取失败"}🌨\n流量信息: ⛈${Account?.data?.text ?? "获取失败"}⛈`
+			content = `公用IPv4: 💧${Trace4?.ip}💧\n公用IPv6: 🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ⛈${Account?.data?.type ?? "获取失败"}⛈\n流量信息: 🌨${Account?.data?.text ?? "获取失败"}🌨`
 			break;
 		case "zh-Hans":
 		case "zh-Hant":
 		default:
-			content = `IPv4: 💧${Trace4?.ip}💧\nIPv6: 🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: 🌨${Account?.data?.type ?? "获取失败"}🌨\n流量信息: ⛈${Account?.data?.text ?? "获取失败"}⛈`
+			content = `IPv4: 💧${Trace4?.ip}💧\nIPv6: 🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ⛈${Account?.data?.type ?? "获取失败"}⛈\n流量信息: 🌨${Account?.data?.text ?? "获取失败"}🌨`
 			break;
 	};
 	const Panel = {
