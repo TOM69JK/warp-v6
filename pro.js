@@ -114,7 +114,7 @@ function formatTrace(trace) {
 		case "on":
 			trace.warp += " ➠部分保护";
 			break;
-		case "PLUS":
+		case "plus":
 			trace.warp += " ➠完整保护";
 			break;
 		case undefined:
@@ -145,7 +145,7 @@ function formatAccount(account) {
 			break;
 		case "team":
 			account.data = {
-				"type": "团队版➠TEAM",
+				"type": "团队版➠team",
 				"limited": false,
 			}
 			break;
