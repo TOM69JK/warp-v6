@@ -108,10 +108,10 @@ async function setENV(name, platform, database) {
 
 function formatTrace(trace) {
 	switch (trace?.warp) {
-		case "OFF":
+		case "off":
 			trace.warp += " ➠没有保护";
 			break;
-		case "ON":
+		case "on":
 			trace.warp += " ➠部分保护";
 			break;
 		case "PLUS":
@@ -143,21 +143,21 @@ function formatAccount(account) {
 				"total": parseInt(account.premium_data) / 1024 / 1024 / 1024
 			}
 			break;
-		case "TEAM":
+		case "team":
 			account.data = {
 				"type": "团队版➠TEAM",
 				"limited": false,
 			}
 			break;
-		case "PLUS":
+		case "plus":
 			account.data = {
-				"type": "WARP+➠PLUS",
+				"type": "WARP+➠plus",
 				"limited": false,
 			}
 			break;
-		case "FREE":
+		case "free":
 			account.data = {
-				"type": "免费版➠FREE",
+				"type": "免费版➠free",
 				"limited": true,
 				"used": parseInt(account.premium_data - account.quota) / 1024 / 1024 / 1024,
 				"flow": parseInt(account.quota) / 1024 / 1024 / 1024,
