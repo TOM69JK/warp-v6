@@ -145,7 +145,7 @@ function formatAccount(account) {
 			break;
 		case "team":
 			account.data = {
-				"type": "团队版➠team",
+				"type": "团队版➠TEAM",
 				"limited": false,
 			}
 			break;
