@@ -46,7 +46,7 @@ const DataBase = {
 		case "zh-Hans":
 		case "zh-Hant":
 		default:
-			content = `IPv4:💧${Trace4?.ip}💧\nIPv6:🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ⛈${Account?.data?.type ?? "获取失败"}⛈\n流量信息: 🌨${Account?.data?.text ?? "获取失败"}🌨`
+			content = `V4⃣️:💧${Trace4?.ip}💧\nV6️⃣:🩸${Trace6?.ip}🩸\nWARP隐私: 🌩${Trace4?.warp ?? Trace6?.warp}🌩\n账户类型: ⛈${Account?.data?.type ?? "获取失败"}⛈\n流量信息: 🌨${Account?.data?.text ?? "获取失败"}🌨`
 			break;
 	};
 	const Panel = {
